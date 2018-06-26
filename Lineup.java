@@ -4,7 +4,9 @@ import java.util.HashSet;
 
 public class Lineup {
 
+	//players in this lineup
 	private HashSet<String> playerNames;
+	//total amount of time in which the lineup was on the court
 	private int time;
 	
 	public Lineup(HashSet<String> names) {
@@ -17,11 +19,9 @@ public class Lineup {
 		time = timePlayed;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void replaceLineup(Lineup names) {
-		playerNames.clear();
-		for(String name : names.getPlayerNames()) {
-			playerNames.add(name);
-		}
+		playerNames = (HashSet<String>) names.getPlayerNames().clone();
 	}
 	
 	public void addPlayer(String name) {
@@ -40,6 +40,8 @@ public class Lineup {
 		return playerNames;
 	}
 	
+	//given two times, finds the amount of time elapsed,
+	//and adds it to the time variable
 	public void addTimeSegment(String previousTime, String newTime) {
 		int previousMinutes = Integer.parseInt(previousTime.substring(0, 2));
 		int previousSeconds = Integer.parseInt(previousTime.substring(3, 5)) + previousMinutes*60;
