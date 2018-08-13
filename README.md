@@ -9,3 +9,5 @@ Lineup- class representing each lineup. Contains a set of players and the amount
 ReadWebsite- class containing main method. Contains a method to read the HTML form of the website line by line, looking for events of substitutions, and updating a HashMap of lineups accordingly.
 
 Writer- class that writes a HashMap of lineups to a text file, in order of time played. 
+
+Output- what is printed on the console after the program runs
